@@ -15,25 +15,27 @@
         <h1>Welkom bij de Winc Filmzoeker</h1>
     </header>
 
-    <nav id="filter-menu">
-        <input type="radio" id="nieuwste-films" name="films" value="nieuwste-films">
-        <label for="nieuwste-films">Nieuwste Films</label>
-        <input type="radio" id="avangers" name="films" value="avangers">
-        <label for="avangers">Avangers</label>
-        <input type="radio" id="x-men" name="films" value="x-men">
-        <label for="x-men">X-men</label>
-        <input type="radio" id="princess" name="films" value="princess">
-        <label for="princess">Princess</label>
-        <input type="radio" id="batman" name="films" value="batman">
-        <label for="batman">Batman</label>
+    <nav id="filter-menu" class="menu">
+        <input type="radio" id="nieuwste-films" class="menu_input" name="film-filter" value="nieuwste-films">
+        <label for="nieuwste-films" class="menu_label">Nieuwste Films</label>
+        <input type="radio" id="avengers-films" class="menu_input" name="film-filter" value="Avengers">
+        <label for="avengers" class="menu_label">Avengers</label>
+        <input type="radio" id="X-men-films" class="menu_input" name="film-filter" value="X-Men">
+        <label for="X-men" class="menu_label">X-Men</label>
+        <input type="radio" id="princess-films" class="menu_input" name="film-filter" value="Princess">
+        <label for="princess" class="menu_label">Princess</label>
+        <input type="radio" id="batman-films" class="menu_input" name="film-filter" value="Batman">
+        <label for="batman" class="menu_label">Batman</label><br>
+        <label for="zoek" class="menu_label">Doorzoek de filmlijst</label>
+        <input type="search" id="zoek" class="menu_input" value="">
     </nav>
     <main>
         <div id="container">
-            <ul id="film-index">
+            <ul id="film-index" class="flex-container">
             </ul>
         </div>
     </main>
-
+    <footer></footer>
 </body>
 
 </html>
