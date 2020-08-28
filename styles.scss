@@ -65,7 +65,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(autofit);
   grid-gap: 15px;
-  margin: 15px;
+  margin: 15px 15px 40px;
   &__item {
     max-width: 25rem;
     margin: 5px;
@@ -85,14 +85,17 @@ body {
 }
 
 footer {
-  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
   border-top: 1px solid black;
   background-color: rgb(32, 32, 32);
   color: white;
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   letter-spacing: 0.2rem;
-  padding-top: 0.5rem;
 }
 
 /*MEDIA QUERIES tablet*/

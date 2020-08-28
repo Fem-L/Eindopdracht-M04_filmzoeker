@@ -22,7 +22,10 @@
 
         <nav id="filter-menu" class="menu">
             <div class="menu__item"><label for="zoek" class="menu__label menu__zoeken">Doorzoek de filmlijst:</label>
-                <input type="search" id="zoek" class="menu__input menu__zoeken" value="Zoeken"></div>
+                <input type="search" id="zoek" class="menu__input menu__zoeken" value="Zoeken" name="film-filter"></div>
+            <div class="menu__item"><input type="radio" id="film-lijst" class="menu__input" name="film-filter"
+                    value="film-lijst">
+                <label for="nieuwste-films" class="menu__label">Filmlijst</label></div>
             <div class="menu__item"><input type="radio" id="nieuwste-films" class="menu__input" name="film-filter"
                     value="nieuwste-films">
                 <label for="nieuwste-films" class="menu__label">Nieuwste Films</label></div>

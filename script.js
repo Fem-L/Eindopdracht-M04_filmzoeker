@@ -1,4 +1,4 @@
-console.log(movies); //movies is een array van alle films
+//console.log(movies); //movies is een array van alle films
 //VARIABELEN
 
 const filmIndex = document.getElementById('film-index'); //ul element is parent voor li elementen
@@ -34,88 +34,77 @@ const removeMovies = () => {
   }
 };
 
-//Functie om films te selecteren op titel(bonus) werkt  niet!!
-//Het is me niet gelukt de zoekfunctie werkend te krijgen.
-
-let searchValue;
-let searchMovie;
+//Functie om films te selecteren op titel(bonus)
+//hoe zorg ik ervoor dat de radiotbutton uit gaat wanneer het inputfield wordt gebruikt?
 
 const getInputValue = () => {
-  let searchValue = zoek.value;
-  console.log('searchValue =', searchValue);
-  let searchMovie = movies.find((movie) => movie.Title == searchValue); //vind alleen iets als je precies dezelfde schijfwijze hanteert als de database
-  console.log('dit vind hij', searchMovie); //Dit is de waarde die ik zoek, ik weet niet hoe ik deze buiten de fucntie kan aanroepen
+  let searchValue = zoek.value.toLowerCase();
+  let searchMovie = movies.filter(
+    (movie) => movie.Title.toLowerCase() == searchValue
+  );
+  removeMovies();
+  addMoviesToDom(searchMovie);
+  return searchMovie;
 };
 
 zoek.addEventListener('search', getInputValue); //activeert zoekfunctie met enter
 
-// onderstaande code wordt alleen aangeroepen voor de input, niet meer na het uitvoeren van de functie
-searchMovie = getInputValue();
-console.log('searchMovie = ', searchMovie);
-
 //FILTERFUNCTIE TOEVOEGEN AAN RADIOBUTTONS
 
 const radioBtn = document.getElementsByName('film-filter'); //nodelist van radiobuttons
-console.log('3', radioBtn);
 
-//Functie die de filter uitvoert
+//Functie die de filter uitvoert met daarin verschilende functies
+
 const handleChangeMovieFilter = (event) => {
   const filterName = event.target.value; //slaat naam op van de filter die wordt gekozen, type is undefinded
-  console.log('Filternaam =', filterName);
 
   //Functie om films te filteren op woord in de titel
   const filterMovies = movies.filter((movie) => {
     let filterFilm = movie.Title.includes(filterName);
     if (filterFilm == true) {
-      console.log('de titel van de film is: ', movie.Title);
-      console.log('5', filterFilm, filterName);
       return filterFilm;
     }
   });
-  console.log('filterMovies = ', filterMovies);
 
   // Functie om de nieuwste films te selecteren
   const filterLatestMovies = movies.filter((movie) => movie.Year > 2013);
-  console.log('filterLatestMovies', filterLatestMovies);
 
   //switch functie
   const expr = filterName;
-  console.log('expr =', filterName);
   switch (expr) {
     case 'nieuwste-films':
       removeMovies();
       addMoviesToDom(filterLatestMovies);
-      console.log('Dit zijn de nieuwste-films');
+      //console.log('Dit zijn de nieuwste-films');
       break;
     case 'Avengers':
       removeMovies();
       addMoviesToDom(filterMovies);
-      console.log('Dit zijn de Avengers films');
+      //console.log('Dit zijn de Avengers films');
       break;
     case 'X-Men':
       removeMovies();
       addMoviesToDom(filterMovies);
-      console.log('Dit zijn de x-men films');
+      //console.log('Dit zijn de x-men films');
       break;
     case 'Princess':
       removeMovies();
       addMoviesToDom(filterMovies);
-      console.log('Dit zijn de princess films');
+      //console.log('Dit zijn de princess films');
       break;
     case 'Batman':
       removeMovies();
       addMoviesToDom(filterMovies);
-      console.log('Dit zijn de batman films');
+      //console.log('Dit zijn de batman films');
       break;
     default:
       removeMovies();
       addMoviesToDom(movies);
-      console.log('Wat ik wil werkt niet :)');
+    //console.log('default');
   }
 };
 
 //eventListener aan alle selectiebuttons
 radioBtn.forEach((btn) => {
   btn.addEventListener('change', handleChangeMovieFilter);
-  console.log('change is geactiveerd');
 });
