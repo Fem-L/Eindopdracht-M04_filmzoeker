@@ -1,31 +1,144 @@
 * {
   box-sizing: border-box;
+
+  font-family: 'Orbitron', Arial, Helvetica, sans-serif, sans-serif;
 }
-header {
+body {
+  background: rgb(48, 48, 48);
+  margin: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 150px;
+  background-color: rgb(245, 245, 245);
+  color: rgb(48, 48, 48);
   text-align: center;
+  letter-spacing: 0.2rem;
+  &__img {
+    width: 250px;
+    height: 100%;
+  }
+  &__welkom {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.container {
+  padding: 0 3rem;
+  margin-right: 1.2rem;
 }
 
 .menu {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin: 1rem;
+  margin: 1rem 0;
+  width: 100%;
   flex: 1;
-  & input {
-    margin: 0 1rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  border: 1px solid black;
+  border-width: 1px 0;
+  background-color: rgb(32, 32, 32);
+  &__item {
+    margin: 1rem;
   }
-  & label {
-    margin: 0 1rem;
+  &__input {
+    margin: 0.8rem 0;
+    color: black;
+    align-self: center;
+  }
+  &__label {
+    align-self: center;
+  }
+  &__zoeken {
+    margin: 0.5rem 0;
+    align-self: flex-start;
   }
 }
-.flex-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: 1rem;
-  flex: 1;
-  & li {
+
+.film-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(autofit);
+  grid-gap: 15px;
+  margin: 15px;
+  &__item {
+    max-width: 25rem;
     margin: 5px;
     list-style: none;
+  }
+  &__img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    &:hover {
+      border: solid 2px white;
+      box-shadow: 2px 2px 20px 5px rgba(255, 255, 255, 0.377);
+    }
+  }
+}
+
+footer {
+  height: 50px;
+  border-top: 1px solid black;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  text-align: center;
+  font-size: 0.6rem;
+  letter-spacing: 0.2rem;
+  padding-top: 0.5rem;
+}
+
+/*MEDIA QUERIES tablet*/
+
+@media (min-width: 650px) {
+  .header {
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 250px;
+    &__img {
+      width: 400px;
+    }
+    &__welkom {
+      padding-top: 2.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  .film-container {
+    grid-template-columns: 1fr 1fr;
+    margin-right: 40px;
+  }
+}
+/*MEDIA QUERIES desktop*/
+
+@media (min-width: 950px) {
+  .header {
+    &__welkom {
+      padding-top: 2.5rem;
+      font-size: 3rem;
+    }
+  }
+
+  .film-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+/*MEDIA QUERIES groter scherm*/
+@media (min-width: 1200px) {
+  .header {
+    &__welkom {
+      padding-top: 2.5rem;
+      font-size: 3.5rem;
+    }
+  }
+
+  .film-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

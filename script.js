@@ -2,6 +2,7 @@ console.log(movies); //movies is een array van alle films
 //VARIABELEN
 
 const filmIndex = document.getElementById('film-index'); //ul element is parent voor li elementen
+const zoek = document.getElementById('zoek'); //inputfield zoekfunctie
 
 //Functie om alle films in de DOM te plaatsen
 
@@ -11,11 +12,16 @@ const addMoviesToDom = (array) => {
     let imbdLink = document.createElement('a'); // a element maken
     let posterImg = document.createElement('img'); // img element maken
     filmIndex.appendChild(filmIndexItem); //li toevoegen aan ul element
-    filmIndexItem.setAttribute('class', 'film-index-item'); //toevoegen van classname in li element
+    filmIndexItem.setAttribute('class', 'film-container__item'); //toevoegen van classname in li element
     filmIndexItem.appendChild(imbdLink); // imbdLink toevoegen aan li element
-    imbdLink.setAttribute('href', movies.Poster + movies.imdbID); //link toevoegen aan a element
+    imbdLink.setAttribute(
+      'href',
+      'https://www.imdb.com/title/' + movies.imdbID
+    ); //link toevoegen aan a element
+    imbdLink.setAttribute('target', 'blank');
     imbdLink.appendChild(posterImg); //img element toevoegen aan li element
     posterImg.setAttribute('src', movies.Poster);
+    posterImg.setAttribute('class', 'film-container__img');
   });
 };
 
@@ -28,29 +34,25 @@ const removeMovies = () => {
   }
 };
 
-//Functie om films te selecteren op titel(bonus) werkt nog niet!!
+//Functie om films te selecteren op titel(bonus) werkt  niet!!
+//Het is me niet gelukt de zoekfunctie werkend te krijgen.
 
-/*const searchMovie = movies.find((movie) => {
-  const zoek = document.getElementById('zoek');
-  movie.Title == zoek.value;
-  console.log('De zoekterm is: ' + zoek.value);
-  return zoek;
-});
-console.log('searchMovie =', searchMovie);
+let searchValue;
+let searchMovie;
 
-document
-  .getElementById('zoek')
-  .addEventListener('search', function (searchMovie) {
-    searchMovie = movies.find((movie) => {
-      let zoek = document.getElementById('zoek');
-      movie.Title == zoek.value;
-      console.log('De zoekterm is: ' + zoek.value);
-      return zoek;
-    });
-    console.log('The term searched for was ' + zoek.value);
-  });
-console.log('searchMovie =', searchMovie);
-*/
+const getInputValue = () => {
+  let searchValue = zoek.value;
+  console.log('searchValue =', searchValue);
+  let searchMovie = movies.find((movie) => movie.Title == searchValue); //vind alleen iets als je precies dezelfde schijfwijze hanteert als de database
+  console.log('dit vind hij', searchMovie); //Dit is de waarde die ik zoek, ik weet niet hoe ik deze buiten de fucntie kan aanroepen
+};
+
+zoek.addEventListener('search', getInputValue); //activeert zoekfunctie met enter
+
+// onderstaande code wordt alleen aangeroepen voor de input, niet meer na het uitvoeren van de functie
+searchMovie = getInputValue();
+console.log('searchMovie = ', searchMovie);
+
 //FILTERFUNCTIE TOEVOEGEN AAN RADIOBUTTONS
 
 const radioBtn = document.getElementsByName('film-filter'); //nodelist van radiobuttons
@@ -75,6 +77,7 @@ const handleChangeMovieFilter = (event) => {
   // Functie om de nieuwste films te selecteren
   const filterLatestMovies = movies.filter((movie) => movie.Year > 2013);
   console.log('filterLatestMovies', filterLatestMovies);
+
   //switch functie
   const expr = filterName;
   console.log('expr =', filterName);
@@ -104,9 +107,6 @@ const handleChangeMovieFilter = (event) => {
       addMoviesToDom(filterMovies);
       console.log('Dit zijn de batman films');
       break;
-    case 'Zoeken':
-      removeMovies();
-      addMoviesToDom(searchMovie);
     default:
       removeMovies();
       addMoviesToDom(movies);

@@ -5,37 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script defer src=" database.js"></script>
     <script defer src="script.js"></script>
     <title>Filmzoeker</title>
 </head>
 
 <body>
-    <header>
-        <h1>Welkom bij de Winc Filmzoeker</h1>
-    </header>
+    <div class="grid-container">
 
-    <nav id="filter-menu" class="menu">
-        <input type="radio" id="nieuwste-films" class="menu_input" name="film-filter" value="nieuwste-films">
-        <label for="nieuwste-films" class="menu_label">Nieuwste Films</label>
-        <input type="radio" id="avengers-films" class="menu_input" name="film-filter" value="Avengers">
-        <label for="avengers" class="menu_label">Avengers</label>
-        <input type="radio" id="X-men-films" class="menu_input" name="film-filter" value="X-Men">
-        <label for="X-men" class="menu_label">X-Men</label>
-        <input type="radio" id="princess-films" class="menu_input" name="film-filter" value="Princess">
-        <label for="princess" class="menu_label">Princess</label>
-        <input type="radio" id="batman-films" class="menu_input" name="film-filter" value="Batman">
-        <label for="batman" class="menu_label">Batman</label><br>
-        <label for="zoek" class="menu_label">Doorzoek de filmlijst</label>
-        <input type="search" id="zoek" class="menu_input" value="">
-    </nav>
-    <main>
-        <div id="container">
-            <ul id="film-index" class="flex-container">
+        <header class="header">
+            <img src="images/retro-cinema-film-camera-vector-background.jpg" alt="retro-filmcamera" class="header__img">
+            <h1 class="header__welkom">Welkom bij de Winc Filmzoeker</h1>
+        </header>
+
+        <nav id="filter-menu" class="menu">
+            <div class="menu__item"><label for="zoek" class="menu__label menu__zoeken">Doorzoek de filmlijst:</label>
+                <input type="search" id="zoek" class="menu__input menu__zoeken" value="Zoeken"></div>
+            <div class="menu__item"><input type="radio" id="nieuwste-films" class="menu__input" name="film-filter"
+                    value="nieuwste-films">
+                <label for="nieuwste-films" class="menu__label">Nieuwste Films</label></div>
+            <div class="menu__item"><input type="radio" id="avengers-films" class="menu__input" name="film-filter"
+                    value="Avengers">
+                <label for="avengers" class="menu__label">Avengers</label></div>
+            <div class="menu__item"><input type="radio" id="X-men-films" class="menu__input" name="film-filter"
+                    value="X-Men">
+                <label for="X-men" class="menu__label">X-Men</label></div>
+            <div class="menu__item"><input type="radio" id="princess-films" class="menu__input" name="film-filter"
+                    value="Princess">
+                <label for="princess" class="menu__label">Princess</label></div>
+            <div class="menu__item"><input type="radio" id="batman-films" class="menu__input" name="film-filter"
+                    value="Batman">
+                <label for="batman" class="menu__label">Batman</label></div>
+        </nav>
+
+        <main class="container">
+            <ul id="film-index" class="film-container">
             </ul>
-        </div>
-    </main>
-    <footer></footer>
+        </main>
+
+        <footer>
+            <p>© 2020 Femke Lemmens</p>
+        </footer>
+    </div>
 </body>
 
 </html>
