@@ -16,7 +16,7 @@ body {
       grid-template-columns: 200px 1fr;
   -ms-grid-rows: 150px;
       grid-template-rows: 150px;
-  background-color: whitesmoke;
+  background-color: #f7f7f7;
   color: #303030;
   text-align: center;
   letter-spacing: 0.2rem;
