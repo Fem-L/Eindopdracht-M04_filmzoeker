@@ -45,6 +45,7 @@ body {
   background-color: rgb(32, 32, 32);
   &__item {
     margin: 1rem;
+    align-items: flex-start;
   }
   &__input {
     margin: 0.8rem 0;
@@ -52,6 +53,7 @@ body {
     align-self: center;
   }
   &__label {
+    font-size: 0.8rem;
     align-self: center;
   }
   &__zoeken {

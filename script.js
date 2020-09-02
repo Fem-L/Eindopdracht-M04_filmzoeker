@@ -60,9 +60,9 @@ const handleChangeMovieFilter = (event) => {
 
   //Functie om films te filteren op woord in de titel
   const filterMovies = movies.filter((movie) => {
-    let filterFilm = movie.Title.includes(filterName);
-    if (filterFilm == true) {
-      return filterFilm;
+    let moviesIncludesFilterName = movie.Title.includes(filterName);
+    if (moviesIncludesFilterName == true) {
+      return moviesIncludesFilterName;
     }
   });
 
