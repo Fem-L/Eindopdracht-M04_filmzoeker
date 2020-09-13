@@ -41,7 +41,7 @@ const getInputValue = () => {
   let searchValue = zoek.value.toLowerCase();
   let searchMovie = movies.filter(
     (movie) => movie.Title.toLowerCase() == searchValue
-  );
+  ); 
   removeMovies();
   addMoviesToDom(searchMovie);
   return searchMovie;
