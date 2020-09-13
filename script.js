@@ -16,7 +16,7 @@ const addMoviesToDom = (array) => {
     filmIndexItem.appendChild(imbdLink); // imbdLink toevoegen aan li element
     imbdLink.setAttribute(
       'href',
-      'https://www.imdb.com/title/' + movies.imdbID
+      `https://www.imdb.com/title/${movies.imdbID}`
     ); //link toevoegen aan a element
     imbdLink.setAttribute('target', 'blank');
     imbdLink.appendChild(posterImg); //img element toevoegen aan li element
